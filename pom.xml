@@ -336,7 +336,7 @@
         <dependency>
             <groupId>com.github.xapn</groupId>
             <artifactId>test-as-you-think-core</artifactId>
-            <version>0.7</version>
+            <version>0.8-m1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
