@@ -1,4 +1,6 @@
 class Battery {
 
-    void charge() {}
+    void charge() {
+        System.out.println("Charged.");
+    }
 }

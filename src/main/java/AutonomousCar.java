@@ -35,7 +35,7 @@ class AutonomousCar {
     }
 
     void startAutomaticDriving() {
-        // some instructions here, no matter
+        System.out.println("Some instructions here, no matter.");
     }
 
     private boolean canEntirelyFillUpTheFuelTank(int fuelQuantity) {

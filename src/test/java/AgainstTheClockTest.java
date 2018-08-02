@@ -2,6 +2,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import testasyouthink.GivenWhenThenDsl.PreparationStage.Given;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static testasyouthink.TestAsYouThink.givenSutClass;
 
 class AgainstTheClockTest {
@@ -18,7 +19,8 @@ class AgainstTheClockTest {
         givenAgainstTheClockAsSut
                 .givenArgument(() -> new AutonomousCar(new Battery()))
                 .whenSutRuns((sut, car) -> sut.start(car, 100))
-                .thenItSucceeds();
+                .thenStandardOutput(stdout -> assertThat(stdout).hasContent("Charged.\n" //
+                        + "Some instructions here, no matter."));
     }
 
     @Test
