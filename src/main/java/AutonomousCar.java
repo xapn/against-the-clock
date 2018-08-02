@@ -1,6 +1,6 @@
 class AutonomousCar {
 
-    private static final int fuelTankCapacity = 100;
+    private static final int FUEL_TANK_CAPACITY = 100;
     private final Battery battery;
     private int fuelQuantity;
     private boolean poweredOn;
@@ -11,19 +11,22 @@ class AutonomousCar {
 
     void prepareBeforeRace() {
         battery.charge();
-        if (!fillUpTheFuelTank(100)) {
+        fillUpTheFuelTank(100);
+        if (!fuelTankIsFull(100)) {
             throw new IllegalStateException(
                     "Can't start an autonomous car without having filled up the fuel tank capacity");
         }
         turnOnPowerButton();
     }
 
-    private boolean fillUpTheFuelTank(int fuelQuantity) {
+    private void fillUpTheFuelTank(int fuelQuantity) {
         if (canEntirelyFillUpTheFuelTank(fuelQuantity)) {
             this.fuelQuantity = fuelQuantity;
-            return true;
         }
-        return false;
+    }
+
+    private boolean fuelTankIsFull(int fuelQuantity) {
+        return canEntirelyFillUpTheFuelTank(fuelQuantity);
     }
 
     private void turnOnPowerButton() {
@@ -35,6 +38,6 @@ class AutonomousCar {
     }
 
     private boolean canEntirelyFillUpTheFuelTank(int fuelQuantity) {
-        return this.fuelQuantity + fuelQuantity < fuelTankCapacity;
+        return this.fuelQuantity + fuelQuantity < FUEL_TANK_CAPACITY;
     }
 }
