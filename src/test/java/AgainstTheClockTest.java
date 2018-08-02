@@ -8,14 +8,18 @@ class AgainstTheClockTest {
 
     @Nested
     @DisplayName("Characterization tests")
-    class CharacterizationTesting {
+    class CharacterizationTesting {}
+
+    @Nested
+    @DisplayName("Fixes")
+    class DefectBasedTesting {
 
         @Test
-        void cover_at_65_percent() {
+        void should_fix_the_fuel_tank_filling() {
             givenSutClass(AgainstTheClock.class)
                     .givenArgument(() -> new AutonomousCar(new Battery()))
-                    .whenSutRunsOutsideOperatingConditions((sut, car) -> sut.start(car, 100))
-                    .thenItFails();
+                    .whenSutRuns((sut, car) -> sut.start(car, 100))
+                    .thenItSucceeds();
         }
     }
 }
