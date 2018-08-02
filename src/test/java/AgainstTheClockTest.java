@@ -8,7 +8,16 @@ class AgainstTheClockTest {
 
     @Nested
     @DisplayName("Characterization tests")
-    class CharacterizationTesting {}
+    class CharacterizationTesting {
+
+        @Test
+        void cover_at_100_percent() {
+            givenSutClass(AgainstTheClock.class)
+                    .givenArgument(() -> new AutonomousCar(new Battery()))
+                    .whenSutRunsOutsideOperatingConditions((sut, car) -> sut.start(car, 99))
+                    .thenItFails();
+        }
+    }
 
     @Nested
     @DisplayName("Fixes")
