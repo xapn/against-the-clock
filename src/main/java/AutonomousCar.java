@@ -1,11 +1,11 @@
-class AutonomousCar {
+public class AutonomousCar {
 
     private static final int FUEL_TANK_CAPACITY = 100;
     private final Battery battery;
     private int fuelQuantity;
     private boolean poweredOn;
 
-    AutonomousCar(Battery battery) {
+    public AutonomousCar(Battery battery) {
         this.battery = battery;
     }
 

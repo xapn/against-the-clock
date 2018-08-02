@@ -6,7 +6,7 @@ import static testasyouthink.TestAsYouThink.givenSut;
 class AutonomousCarTest {
 
     @Test
-    void should_fix_the_car_preparation_when_there_is_2_preparations() {
+    void should_fix_the_car_preparation_when_there_are_2_preparations() {
         givenSut(() -> new AutonomousCar(new Battery()))
                 .when(sut -> {
                     sut.prepareBeforeRace(new Fuel(100));

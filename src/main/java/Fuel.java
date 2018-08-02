@@ -1,8 +1,8 @@
-class Fuel {
+public final class Fuel {
 
-    private int quantity;
+    private final int quantity;
 
-    Fuel(int quantity) {
+    public Fuel(int quantity) {
         this.quantity = quantity;
     }
 
