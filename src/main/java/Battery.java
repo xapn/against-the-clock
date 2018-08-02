@@ -1,0 +1,4 @@
+class Battery {
+
+    void charge() {}
+}
