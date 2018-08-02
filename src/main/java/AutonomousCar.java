@@ -10,13 +10,17 @@ class AutonomousCar {
     }
 
     void prepareBeforeRace(Fuel fuel) {
-        battery.charge();
-        fillUpTheFuelTank(fuel);
-        if (fuelTankIsFull()) {
-            turnOnPowerButton();
+        if (poweredOn) {
+            System.out.println("Already prepared! Just start automatic driving now.");
         } else {
-            throw new IllegalStateException(
-                    "Can't start an autonomous car without having filled up the fuel tank capacity");
+            battery.charge();
+            fillUpTheFuelTank(fuel);
+            if (fuelTankIsFull()) {
+                turnOnPowerButton();
+            } else {
+                throw new IllegalStateException(
+                        "Can't start an autonomous car without having filled up the fuel tank capacity");
+            }
         }
     }
 
