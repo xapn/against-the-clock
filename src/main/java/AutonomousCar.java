@@ -9,9 +9,9 @@ class AutonomousCar {
         this.battery = battery;
     }
 
-    void prepareBeforeRace(int fuelQuantity) {
+    void prepareBeforeRace(Fuel fuel) {
         battery.charge();
-        fillUpTheFuelTank(fuelQuantity);
+        fillUpTheFuelTank(fuel);
         if (fuelTankIsFull()) {
             turnOnPowerButton();
         } else {
@@ -20,9 +20,9 @@ class AutonomousCar {
         }
     }
 
-    private void fillUpTheFuelTank(int fuelQuantity) {
-        if (canEntirelyFillUpTheFuelTank(fuelQuantity)) {
-            this.fuelQuantity = fuelQuantity;
+    private void fillUpTheFuelTank(Fuel fuel) {
+        if (canEntirelyFillUpTheFuelTank(fuel.getQuantity())) {
+            this.fuelQuantity = fuel.getQuantity();
         }
     }
 
