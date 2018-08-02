@@ -51,6 +51,6 @@ class AutonomousCar {
     }
 
     private boolean canEntirelyFillUpTheFuelTank(int fuelQuantity) {
-        return this.fuelQuantity + fuelQuantity == FUEL_TANK_CAPACITY;
+        return fuelQuantity == FUEL_TANK_CAPACITY;
     }
 }
