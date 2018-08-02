@@ -11,10 +11,10 @@ class AgainstTheClockTest {
     class CharacterizationTesting {
 
         @Test
-        void cover() {
+        void cover_at_65_percent() {
             givenSutClass(AgainstTheClock.class)
                     .givenArgument(() -> new AutonomousCar(new Battery()))
-                    .whenSutRunsOutsideOperatingConditions(AgainstTheClock::start)
+                    .whenSutRunsOutsideOperatingConditions((sut, car) -> sut.start(car, 100))
                     .thenItFails();
         }
     }

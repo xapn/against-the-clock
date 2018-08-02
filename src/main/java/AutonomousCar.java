@@ -9,10 +9,10 @@ class AutonomousCar {
         this.battery = battery;
     }
 
-    void prepareBeforeRace() {
+    void prepareBeforeRace(int fuelQuantity) {
         battery.charge();
-        fillUpTheFuelTank(100);
-        if (!fuelTankIsFull(100)) {
+        fillUpTheFuelTank(fuelQuantity);
+        if (!fuelTankIsFull(fuelQuantity)) {
             throw new IllegalStateException(
                     "Can't start an autonomous car without having filled up the fuel tank capacity");
         }
